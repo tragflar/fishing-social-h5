@@ -1,0 +1,39 @@
+{
+    "name": "fishing-social-h5",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "description": "钓鱼佬社交平台 - 专为钓鱼爱好者打造的社交记录平台",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "serve": "vite preview --host 0.0.0.0 --port 4173",
+        "start": "npm run build && npm run serve",
+        "external": "./scripts/deploy-external.sh",
+        "tunnel": "lt --port 3000 --subdomain fishing-social-h5",
+        "simple-tunnel": "./scripts/simple-tunnel.sh",
+        "type-check": "vue-tsc",
+        "deploy": "gh-pages -d dist",
+        "predeploy": "npm run build",
+        "github-init": "./scripts/github-init.sh"
+    },
+    "dependencies": {
+        "axios": "^1.5.0",
+        "echarts": "^6.0.0",
+        "pinia": "^2.1.6",
+        "vant": "^4.6.4",
+        "vue": "^3.3.4",
+        "vue-router": "^4.2.4"
+    },
+    "devDependencies": {
+        "@vant/touch-emulator": "^1.3.2",
+        "@vitejs/plugin-vue": "^4.3.4",
+        "less": "^4.2.0",
+        "postcss-px-to-viewport": "^1.1.1",
+        "typescript": "^5.9.2",
+        "vite": "^4.4.5",
+        "vue-tsc": "^1.8.27",
+        "gh-pages": "^6.0.0"
+    }
+}
