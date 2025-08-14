@@ -40,3 +40,68 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
+
+
+## 推送后的检查步骤
+
+1. **查看 GitHub Actions**
+   - 推送完成后，立即打开浏览器
+   - 访问你的 GitHub 仓库
+   - 点击 **Actions** 标签页
+   - 应该能看到新的工作流正在运行
+
+2. **监控部署进度**
+   - 点击最新的工作流查看详细日志
+   - 等待所有步骤完成（显示绿色 ✅）
+
+3. **检查部署结果**
+   - 部署成功后，访问 `https://tragflar.github.io/fishing-social-h5/`
+   - 强制刷新页面：`Cmd + Shift + R`
+
+## 如果推送后仍然没有触发 Actions
+
+检查你的 <mcfile name="deploy.yml" path="/Users/mac/Desktop/未命名文件夹 4/.github/workflows/deploy.yml"></mcfile> 文件是否包含了权限配置。如果没有，请确保文件内容如下：
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Build
+      run: pnpm build
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
+```

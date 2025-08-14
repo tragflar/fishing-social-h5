@@ -9,7 +9,7 @@ export default defineConfig({
         postcss: {
             plugins: [
                 pxtovw({
-                    viewportWidth: 375, // 设计稿宽度
+                    viewportWidth: 375,
                     unitPrecision: 3,
                     viewportUnit: 'vw',
                     selectorBlackList: ['.ignore', '.hairlines'],
@@ -20,10 +20,10 @@ export default defineConfig({
         },
     },
     server: {
-        host: '0.0.0.0', // 允许所有IP访问
+        host: '0.0.0.0',
         port: 3000,
-        open: true, // 自动打开浏览器
-        cors: true, // 启用CORS
+        open: true,
+        cors: true,
         hmr: true,
     },
     preview: {
@@ -34,13 +34,20 @@ export default defineConfig({
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
-        sourcemap: false, // 生产环境不生成sourcemap
+        sourcemap: false,
+        // 添加这些配置以确保GitHub Pages兼容性
+        target: 'es2015',
+        minify: 'terser',
         rollupOptions: {
             output: {
                 manualChunks: {
                     vendor: ['vue', 'vue-router', 'pinia'],
                     vant: ['vant'],
                 },
+                // 确保文件名稳定
+                entryFileNames: 'assets/[name]-[hash].js',
+                chunkFileNames: 'assets/[name]-[hash].js',
+                assetFileNames: 'assets/[name]-[hash].[ext]'
             },
         },
     },
