@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import pxtovw from 'postcss-px-to-viewport';
+import pxtovw from 'postcss-px-to-viewport-8-plugin';
 
 export default defineConfig({
     base: process.env.NODE_ENV === 'production' ? '/fishing-social-h5/' : '/',
@@ -9,7 +9,7 @@ export default defineConfig({
         postcss: {
             plugins: [
                 pxtovw({
-                    viewportWidth: 375,
+                    viewportWidth: 375, // 设计稿宽度
                     unitPrecision: 3,
                     viewportUnit: 'vw',
                     selectorBlackList: ['.ignore', '.hairlines'],
@@ -20,10 +20,10 @@ export default defineConfig({
         },
     },
     server: {
-        host: '0.0.0.0',
+        host: '0.0.0.0', // 允许所有IP访问
         port: 3000,
-        open: true,
-        cors: true,
+        open: true, // 自动打开浏览器
+        cors: true, // 启用CORS
         hmr: true,
     },
     preview: {
@@ -34,20 +34,14 @@ export default defineConfig({
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
-        sourcemap: false,
-        // 添加这些配置以确保GitHub Pages兼容性
-        target: 'es2015',
-        minify: 'terser',
+        sourcemap: false, // 生产环境不生成sourcemap
+        minify: 'terser', // 明确指定使用terser
         rollupOptions: {
             output: {
                 manualChunks: {
                     vendor: ['vue', 'vue-router', 'pinia'],
                     vant: ['vant'],
                 },
-                // 确保文件名稳定
-                entryFileNames: 'assets/[name]-[hash].js',
-                chunkFileNames: 'assets/[name]-[hash].js',
-                assetFileNames: 'assets/[name]-[hash].[ext]'
             },
         },
     },

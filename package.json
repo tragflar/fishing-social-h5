@@ -32,7 +32,8 @@
         "@vitejs/plugin-vue": "^4.3.4",
         "gh-pages": "^6.0.0",
         "less": "^4.2.0",
-        "postcss-px-to-viewport": "^1.1.1",
+        "postcss-px-to-viewport-8-plugin": "^1.2.5",
+        "terser": "^5.19.4",
         "typescript": "^5.9.2",
         "vite": "^4.4.5",
         "vue-tsc": "^1.8.27"
