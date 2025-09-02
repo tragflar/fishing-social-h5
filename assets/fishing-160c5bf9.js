@@ -1,1 +1,0 @@
-var r=(r=>(r.FRESHWATER="freshwater",r.SALTWATER="saltwater",r.BLACK_PIT="black_pit",r.RESERVOIR="reservoir",r.RIVER="river",r.LAKE="lake",r))(r||{}),e=(r=>(r.COMMON="common",r.RARE="rare",r.EPIC="epic",r.LEGENDARY="legendary",r))(e||{}),a=(r=>(r.FRESHWATER="freshwater",r.SALTWATER="saltwater",r.LAKE="lake",r.RIVER="river",r))(a||{});export{r as F,a,e as b};
