@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import pxtovw from 'postcss-px-to-viewport-8-plugin';
+import { resolve } from 'path';
 
 export default defineConfig({
     base: process.env.NODE_ENV === 'production' ? '/fishing-social-h5/' : '/',
     plugins: [vue()],
+    resolve: {
+        alias: {
+            '@': resolve(__dirname, 'src')
+        }
+    },
     css: {
         postcss: {
             plugins: [

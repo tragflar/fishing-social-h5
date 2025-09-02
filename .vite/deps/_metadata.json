@@ -1,0 +1,44 @@
+{
+  "hash": "009aef59",
+  "browserHash": "0b4105e4",
+  "optimized": {
+    "vue": {
+      "src": "../../node_modules/.pnpm/vue@3.5.18_typescript@5.9.2/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "ce17083e",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../node_modules/.pnpm/pinia@2.3.1_typescript@5.9.2_vue@3.5.18_typescript@5.9.2_/node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "7bda1bfc",
+      "needsInterop": false
+    },
+    "vant": {
+      "src": "../../node_modules/.pnpm/vant@4.9.21_vue@3.5.18_typescript@5.9.2_/node_modules/vant/es/index.mjs",
+      "file": "vant.js",
+      "fileHash": "3a9a5eab",
+      "needsInterop": false
+    },
+    "@vant/touch-emulator": {
+      "src": "../../node_modules/.pnpm/@vant+touch-emulator@1.4.0/node_modules/@vant/touch-emulator/dist/index.mjs",
+      "file": "@vant_touch-emulator.js",
+      "fileHash": "2ef340bd",
+      "needsInterop": true
+    },
+    "vue-router": {
+      "src": "../../node_modules/.pnpm/vue-router@4.5.1_vue@3.5.18_typescript@5.9.2_/node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "b02d7fba",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-BPR5FKHA": {
+      "file": "chunk-BPR5FKHA.js"
+    },
+    "chunk-FLWASQQC": {
+      "file": "chunk-FLWASQQC.js"
+    }
+  }
+}

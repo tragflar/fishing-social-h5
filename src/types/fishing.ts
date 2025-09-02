@@ -138,4 +138,83 @@ export interface FishSpecies {
     season?: string[];
 }
 
+// 勋章类型枚举
+export enum MedalType {
+    LEVEL_UP = 'level_up',                    // 等级提升
+    FISH_UNLOCK = 'fish_unlock',              // 鱼类解锁
+    FISH_COLLECT = 'fish_collect',            // 鱼类收集
+    CATCH_MILESTONE = 'catch_milestone',      // 钓获里程碑
+    WEIGHT_MILESTONE = 'weight_milestone',    // 重量里程碑
+    DIVERSITY_MILESTONE = 'diversity_milestone', // 多样性里程碑
+    SPOT_CHECKIN = 'spot_checkin',           // 钓点签到
+    EQUIPMENT_COLLECT = 'equipment_collect',  // 装备收集
+    COMMUNITY_ACTIVE = 'community_active'     // 社区活跃
+}
+
+// 勋章解锁条件
+export interface MedalUnlockRequirement {
+    type: string;
+    value: number;
+    description: string;
+}
+
+// 勋章信息
+export interface Medal {
+    id: string;
+    name: string;
+    description: string;
+    type: MedalType;
+    icon: string;
+    color: string;
+    rarity: 'common' | 'rare' | 'epic' | 'legendary';
+    unlockCondition: string;
+    unlockRequirement: MedalUnlockRequirement;
+    isUnlocked: boolean;
+    unlockedAt?: Date;
+}
+
+// 用户勋章数据
+export interface UserMedals {
+    userId: string;
+    medals: Medal[];
+    totalCount: number;
+    unlockedCount: number;
+    lastUpdated: Date;
+}
+
+
+// 装备类型枚举
+export enum EquipmentType {
+    ROD = 'rod',           // 钓竿
+    REEL = 'reel',         // 渔轮
+    LINE = 'line',         // 钓线
+    HOOK = 'hook',         // 鱼钩
+    BAIT = 'bait',         // 饵料
+    ACCESSORY = 'accessory' // 配件
+}
+
+// 装备信息接口
+export interface Equipment {
+    id: string;
+    name: string;
+    type: EquipmentType;
+    brand?: string;
+    model?: string;
+    description?: string;
+    price?: number;
+    purchaseDate?: Date;
+    condition: 'new' | 'good' | 'fair' | 'poor';
+    isActive: boolean;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+// 用户装备接口
+export interface UserEquipment {
+    userId: string;
+    equipment: Equipment[];
+    totalCount: number;
+    lastUpdated: Date;
+}
+
  

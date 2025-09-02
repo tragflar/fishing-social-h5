@@ -80,6 +80,24 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/FishGuide.vue'),
         meta: { title: '钓鱼图鉴' }
     },
+    {
+        path: '/add-record',
+        name: 'AddRecord',
+        component: () => import('../views/AddRecord.vue'),
+        meta: { requiresAuth: true, title: '添加记录' }
+    },
+    {
+        path: '/record',
+        name: 'Record',
+        component: () => import('../views/Record.vue'),
+        meta: { title: '钓获记录' }
+    },
+    {
+        path: '/records',
+        name: 'Records',
+        component: () => import('../views/Records.vue'),
+        meta: { title: '记录列表' }
+    }
 ];
 
 const router = createRouter({
@@ -92,4 +110,4 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
-export default router; 
+export default router;
